@@ -1,12 +1,33 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+
+<link rel="stylesheet" href="{% static 'testglobal.css' %}">
+
 <body>
 
-<ul>
-  {% for x in members %}
-    <li>{{ x.firstname }} </li>
-  {% endfor %}
-</ul>
+{% include "menu.html" with me="XENON" sponsor="NOYSOFT" %}
 
+<h1>Welcome</h1>
+
+<p>This is a Noysoft web site.</p>
+
+<p>Loop through the items:</p>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Firsname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in members %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+</table>
 </body>
 </html>
